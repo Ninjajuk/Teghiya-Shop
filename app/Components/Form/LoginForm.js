@@ -56,25 +56,11 @@ const LoginForm = () => {
   return (
     <section className="w-full mx-auto">
       <div className="max-w-[1200px ] flex justify-center items-center py-4">
-        <div className="w-full flex flex-col md:flex-row h-[460px]">
-          <div
-            className=" md:block md:w-1/2 max-h-full overflow-hidden rounded-md"
-            style={{
-              backgroundImage:
-                "https://cdnstatic.nextias.com/assets/images/login-signp-pop-up.png",
-            }}
-          >
-            <img
-              src="https://cdnstatic.nextias.com/assets/images/login-signp-pop-up.png"
-              alt="Your Image"
-              className="w-full h-full object-cover object-center "
 
-              // style={{ maxWidth: "100%", height: "auto" }}
-            />
-          </div>
+
           <div className="bg-white p-6 rounded-md  shadow-md w-full md:w-1/2 ">
             <form
-              className="bg-white p-6 rounded-md  shadow-md w-full  "
+              className="bg-white p-6 w-full  "
               // onSubmit={handleLogin}
             >
               <h2 className="text-2xl font-semibold mb-6">
@@ -178,7 +164,7 @@ const LoginForm = () => {
               </a>
             </div>
           </div>
-        </div>
+
       </div>
     </section>
   );

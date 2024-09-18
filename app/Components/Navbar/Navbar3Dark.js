@@ -16,13 +16,7 @@ import { usePathname } from 'next/navigation'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-// const navigationLeft = [
-//   { name: "Home", href: "/", current: false },
-//   { name: "Shop", href: "/shop", current: false },
-//   { name: "About us", href: "/about-us", current: false },
-//   { name: "Contact Us", href: "/contact-us", current: false },
 
-// ];
 
 export default function Navbar1() {
   const pathname = usePathname()
@@ -85,14 +79,6 @@ const cartItems = useSelector((state) => state.cart);
                       >
                         About us
                       </Link>
-                      <Link
-                        href="/contact-us"
-                        className={`rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${
-                          pathname === "/contact-us" ? "bg-gray-900" : ""
-                        }`}
-                      >
-                        Contact us
-                      </Link>
                     </div>
                   </div>
                   <div className="flex lg:hidden">
@@ -113,7 +99,7 @@ const cartItems = useSelector((state) => state.cart);
                     </Disclosure.Button>
                   </div>
                 </div>
-                <div className="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
+                {/* <div className="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
                   <div className="w-full max-w-lg lg:max-w-xs">
                     <label htmlFor="search" className="sr-only">
                       Search
@@ -134,23 +120,22 @@ const cartItems = useSelector((state) => state.cart);
                       />
                     </div>
                   </div>
-                </div>
-                <div className="hidden lg:block">
-                  {isAuthenticated  &&user? (
-                    <h1>{user.email.slice(0, 6)}</h1>
-                  ) : (
-                    <button
-                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                      type="button"
-                      onClick={() => loginrouter.push("/login")}
-                    >
-                      Login
-                    </button>
-                  )}
-                </div>
+                </div> */}
 
-                <div className="hidden lg:ml-4 lg:block">
-                  <div className="flex items-center">
+
+               <div className='flex items-center'>
+                  <div className="hidden lg:ml-4 lg:flex items-center">
+                    {isAuthenticated && user ? (
+                      <h1>{user.email.slice(0, 6)}</h1>
+                    ) : (
+                      <button
+                        className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        type="button"
+                        onClick={() => loginrouter.push("/login")}
+                      >
+                        Login
+                      </button>
+                    )}
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-4 flex-shrink-0">
                       <div>
@@ -197,7 +182,33 @@ const cartItems = useSelector((state) => state.cart);
                                   "block px-4 py-2 text-sm text-gray-700"
                                 )}
                               >
-                                Settings
+                                Order History
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="#"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                              >
+                                My WishList
+                              </a>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="#"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                              >
+                                Contact Us
                               </a>
                             )}
                           </Menu.Item>
@@ -219,24 +230,28 @@ const cartItems = useSelector((state) => state.cart);
                       </Transition>
                     </Menu>
                   </div>
-                </div>
-                <button
-                  type="button"
-                  className="text-white flex items-center text-md px-4 relative"
-                  onClick={handlecartOpen}
-                >
-                  <span className="px-1">Cart</span>
-                  <span className="">
-                    <FaCartPlus />
-                  </span>
-                </button>
+                  <div>
+                    <button
+                      type="button"
+                      className="text-white flex items-center text-md px-4 relative"
+                      onClick={handlecartOpen}
+                    >
+                      <span className="px-1">Cart</span>
+                      <span className="">
+                        <FaCartPlus />
+                      </span>
+                    </button>
 
-                <span className="absolute top-0 right-0 mt-1  bg-red-500 text-white rounded-full text-xxs px-1 py-0.5">
-                  {cartItems.length}
-                </span>
+                    <span className="absolute top-0 right-0 mt-1  bg-red-500 text-white rounded-full text-xxs px-1 py-0.5">
+                      {cartItems.length}
+                    </span>
+                  </div>
+                </div>
+
+
               </div>
             </div>
-
+{/* Mobile Menu */}
             <Disclosure.Panel className="lg:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
