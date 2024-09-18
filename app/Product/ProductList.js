@@ -110,7 +110,7 @@ const filterProductsData=['All','Electronics','Vegetables','Meats']
                       {/* {isItemInCart(product.id, cartItems)
                         ? "Remove"
                         : "Add to Cart"} */}
-                     Add to Cart"
+                     Add to Cart
                     </span>
                   </button>
                 </div>
