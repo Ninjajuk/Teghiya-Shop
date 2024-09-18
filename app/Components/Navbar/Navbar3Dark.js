@@ -47,8 +47,8 @@ const cartItems = useSelector((state) => state.cart);
               <div className="relative flex h-16 items-center justify-between">
                 <div className="flex items-center px-2 lg:px-0">
                   {/* <div className="flex-shrink-0"> */}
-                    <h1 className="hidden lg:flex rounded-md px-3 py-2 text-lg font-bold text-gray-300 hover:bg-gray-700 hover:text-white">
-                      YinKiong Store
+                    <h1 className="hidden lg:flex rounded-md px-3 py-2 text-lg font-bold text-gray-300">
+                      Teghiya Store
                     </h1>
                   {/* </div> */}
                   <div className="hidden lg:ml-6 lg:block">
