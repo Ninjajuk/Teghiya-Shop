@@ -24,7 +24,7 @@ import TrendingProducts from "./components/TrendingProducts";
 useEffect(()=>{
   async function getData() {
     try {
-      const resp = await fetch('https://dummyjson.com/products');
+      const resp = await fetch('https://dummyjson.com/products/?limit=100');
       const product  =await resp.json()
       setData(product.products);
       console.log("Data is",product.products)
@@ -70,7 +70,7 @@ const filterProductsData=['All','Electronics','Vegetables','Meats']
             Customers also purchased
           </h2>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {data?.slice(0,12).map((product) => (
+            {data?.map((product) => (
               <div
                 key={product.id}
                 className="group relative px-2 py-2 shadow-md rounded-md "

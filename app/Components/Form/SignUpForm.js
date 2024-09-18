@@ -57,15 +57,8 @@ const SignUpForm = () => {
     <>
       <section className="w-full mx-auto">
       <div className="max-w-[1200px ] flex justify-center items-center py-4">
-        <div className="w-full flex flex-col md:flex-row h-[500px]">
-          <div className="  md:w-1/2 max-h-full overflow-hidden rounded-md shadow-md">
-            <img
-              src="https://cdnstatic.nextias.com/assets/images/login-signp-pop-up.png"
-              alt="Your Image"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="bg-white p-6  w-full md:w-1/2 ">
+        <div className="max-w-xl  flex flex-col md:flex-row  bg-white rounded-md shadow-md ">
+          <div className="bg-white p-6  w-full  ">
           <form
             className="bg-white p-4  w-full "
             onSubmit={handleRegister}
@@ -136,7 +129,7 @@ const SignUpForm = () => {
                 enqueueSnackbar("I love hooks", { variant: "success" })
               }
               type="submit"
-              className="w-full bg-blue-500 text-white rounded-lg py-2 hover:bg-blue-600 transition duration-300"
+              className="w-full bg-purple-800 text-white rounded-lg py-2 hover:bg-green-700 transition duration-300"
             >
               Register
             </button>

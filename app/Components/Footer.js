@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row  w-full py-2">
             <div className="md:w-2/5  flex flex-col px-2 py-4">
               <div className="mb-4" >
-                <h1 className='text-4xl font-bold text-sky-600'>Yingkiong Store</h1>
+                <h1 className='text-4xl font-bold text-purple-800'>Teghiya Store</h1>
               </div>
               <div className="mb-4">
                 <p>Yingkiong Store was born out of a love for our product and a commitment to what makes our brand unique</p>
@@ -43,21 +43,6 @@ const Footer = () => {
                 <div className="w-full md:w-2/5">
                   <div className="w-full md:px-4">
                     <div>
-                      {/* Email subscription form */}
-                      <form className="flex flex-col ">
-                        <label className="font-medium text-lg">Subscribe for latest updates & offers</label>
-                        <input
-                          type="email"
-                          placeholder="Enter your email"
-                          className="w-full p-2 border border-gray-300 rounded-l my-2"
-                        />
-                        <button
-                          type="submit"
-                          className="bg-blue-400 hover:bg-blue-800 text-white p-2 rounded-r w-full my-2"
-                        >
-                          Subscribe
-                        </button>
-                      </form>
                       <h5 className="my-2 font-bold text-lg">
                         Visit our store
                       </h5>
@@ -129,7 +114,7 @@ const Footer = () => {
                     <li className='px-2 hover:text-blue-400'><a href=''>Shipping & Payment Policy</a></li>
                 </ul>
             </div>
-            <div className='flex items-center justify-center pt-4'><h1 className=" text-[#ba9d5a] font-medium py-2"> @ Copyright 2023 Yingkiong Store. All right reserved</h1></div>
+            <div className='flex items-center justify-center pt-4'><h1 className=" text-purple-800 font-bold py-2"> @ Copyright 2023 Teghiya Store. All right reserved</h1></div>
         </div>
       </footer>
     );
