@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Bunks from "../Components/Slider";
 import ShopByCategory from "./ShopByCategory";
 import FruitsVegetables from "./FriutsVegetables";
-import Electronics from "./Electronics";
+
 import Link from 'next/link';
 import { useDispatch, useSelector } from "react-redux";
 import { addOrRemoveFromCart, isItemInCart } from '../utility/cartUtils'
