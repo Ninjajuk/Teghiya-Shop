@@ -11,7 +11,7 @@ const Footer = () => {
                 <h1 className='text-4xl font-bold text-purple-800'>Teghiya Store</h1>
               </div>
               <div className="mb-4">
-                <p>Yingkiong Store was born out of a love for our product and a commitment to what makes our brand unique</p>
+                <p>Teghiya Store was born out of a love for our product and a commitment to what makes our brand unique</p>
               </div>
               <div className="flex "></div>
             </div>

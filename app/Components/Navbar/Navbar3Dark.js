@@ -34,7 +34,7 @@ const cartItems = useSelector((state) => state.cart);
   };
   return (
     <>
-      <Disclosure as="nav" className="bg-purple-800 sticky top-0 z-10">
+      <Disclosure as="nav" className="bg-sky-800 sticky top-0 z-10">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">

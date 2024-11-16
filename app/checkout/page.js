@@ -40,23 +40,6 @@ const CheckoutPage = () => {
     country: '',
   });
 
-  // const [orderItems, setOrderItems] = useState([
-  //   {
-  //     id: 1,
-  //     title: 'Product 1',
-  //     price: 50,
-  //     quantity: 2,
-  //     imageUrl: 'https://tailwindui.com/img/ecommerce-images/checkout-page-02-product-01.jpg',
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Product 2',
-  //     price: 75,
-  //     quantity: 1,
-  //     imageUrl: 'https://tailwindui.com/img/ecommerce-images/checkout-page-02-product-01.jpg',
-  //   },
-  // ]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
