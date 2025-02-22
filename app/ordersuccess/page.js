@@ -1,29 +1,23 @@
 'use client'
-import React,{useEffect} from 'react';
-import { useDispatch } from "react-redux";
-import { useRouter } from 'next/navigation'
-import { useSelector,  } from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from 'next/navigation';
 import { calculateSubtotal, calculateTotal } from "../utility/cartUtils"; 
 import TotalPriceSummary from '../checkout/TotalPriceSummary';
-
-import { clearCart } from '../redux/cartSlice'
-
+import { clearCart } from '../redux/cartSlice';
+import { CheckCircleIcon } from '@heroicons/react/24/solid';
 
 const OrderSuccessPage = () => {
   const dispatch = useDispatch();
-    const router = useRouter()
-    const cartItems = useSelector((state) => state.cart);
-
-    const subtotal = calculateSubtotal(cartItems);
-    const total = calculateTotal(cartItems);
+  const router = useRouter();
+  const cartItems = useSelector((state) => state.cart);
+  const subtotal = calculateSubtotal(cartItems);
+  const total = calculateTotal(cartItems);
 
   // Example order details
   const order = {
-    products: [
-      { id: 1, title: 'Product 1', price: 50, quantity: 2, imageUrl: 'https://tailwindui.com/img/ecommerce-images/checkout-page-02-product-01.jpg' },
-      { id: 2, title: 'Product 2', price: 75, quantity: 1, imageUrl: 'https://tailwindui.com/img/ecommerce-images/checkout-page-02-product-01.jpg' },
-    ],
-    total: 175,
+    products: cartItems,
+    total,
     deliveryAddress: {
       firstName: 'John',
       lastName: 'Doe',
@@ -35,86 +29,62 @@ const OrderSuccessPage = () => {
     },
   };
 
-// for resetting the cart)
-// useEffect(() => {
-//   dispatch(clearCart());
-// }, [dispatch]);
-
   return (
-    <div className="container mx-auto mt-8 md:px-[8rem]">
-      <h2 className="lg:text-3xl font-bold mb-4 text-green-600 lg:text-center">
-        Order Successful! Thank you for your order! </h2>
-
-      <div className="mb-8">
-        <h3 className="text-2xl font-bold mb-2">Order Details</h3>
-
-        {/* Product List */}
-        <div className="flow-root">
-                          <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {cartItems.map((product) => (
-                              <li key={product.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
-                                    src={product.thumbnail}
-                                    alt={product.title}
-                                    className="h-full w-full object-cover object-center"
-                                  />
-                                </div>
-
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        <a href={product.href}>{product.title}</a>
-                                      </h3>
-                                      <p className="ml-4">₹{product.price}</p>
-                                    </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
-                                  </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Qty {product.quantity}</p>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+    <div className="container mx-auto mt-8 px-4 md:px-12 lg:px-20">
+      {/* Success Message */}
+      <div className="flex flex-col items-center">
+        <CheckCircleIcon className="h-16 w-16 text-green-600 mb-2" />
+        <h2 className="text-2xl md:text-3xl font-bold text-green-600 text-center">
+          Order Successful! 🎉 Thank you for your order!
+        </h2>
       </div>
-      {/* Total Price */}
 
-<TotalPriceSummary/>
+      {/* Order Details */}
+      <div className="mt-6 bg-white shadow-md rounded-lg p-6">
+        <h3 className="text-xl font-semibold mb-4">Order Details</h3>
+        
+        {cartItems.length > 0 ? (
+          <div className="grid gap-4">
+            {cartItems.map((product) => (
+              <div key={product.id} className="flex items-center gap-4 border-b pb-4 last:border-none">
+                <img src={product.thumbnail} alt={product.title} className="h-20 w-20 object-cover rounded-md shadow-md" />
+                <div className="flex-1">
+                  <h4 className="text-lg font-medium">{product.title}</h4>
+                  <p className="text-gray-500">₹{product.price} x {product.quantity}</p>
+                </div>
+                <p className="font-semibold text-gray-900">₹{product.price * product.quantity}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-gray-500">Your cart is empty.</p>
+        )}
+      </div>
+
+      {/* Total Price Summary */}
+      <TotalPriceSummary />
+
       {/* Delivery Address */}
-      <div className="max-w-md mb-4 rounded-md shadow-md bg-white px-4 py-4">
-        <h4 className="text-xl font-bold mb-2">Delivery Address</h4>
-        <p>
-          {order.deliveryAddress.firstName} {order.deliveryAddress.lastName}
-        </p>
+      <div className="mt-6 bg-white shadow-md rounded-lg p-6">
+        <h4 className="text-xl font-semibold mb-2">Delivery Address</h4>
+        <p>{order.deliveryAddress.firstName} {order.deliveryAddress.lastName}</p>
         <p>{order.deliveryAddress.address}</p>
-        <p>
-          {order.deliveryAddress.city}, {order.deliveryAddress.state}{" "}
-          {order.deliveryAddress.pincode}
-        </p>
+        <p>{order.deliveryAddress.city}, {order.deliveryAddress.state} {order.deliveryAddress.pincode}</p>
         <p>{order.deliveryAddress.country}</p>
       </div>
-      {/* Additional Information or Thank You Message */}
-      {/* <p className="text-lg">Thank you for your order! Your items will be delivered soon.</p> */}
-      <div className='border-b-2 border-gray-200'></div>
-      <div className="my-6 flex justify-center text-center text-sm text-gray-500">
-                        <p className='ml-auto'>
-                          or
-                          <button
-                            type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500 "
-                            onClick={() => {
-                              dispatch(clearCart()); // Dispatch the clearCart action here
-                              router.push('/');
-                            }}
-                          >
-                            Continue Shopping
-                            <span aria-hidden="true"> &rarr;</span>
-                          </button>
-                        </p>
-                      </div>
+
+      {/* Continue Shopping Button */}
+      <div className="flex justify-center mt-8">
+        <button
+          className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all"
+          onClick={() => {
+            dispatch(clearCart());
+            router.push('/');
+          }}
+        >
+          Continue Shopping &rarr;
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,3 @@
-import Footer from "./Components/Footer";
-
-
 
 import ProductList from "./Product/ProductList";
 

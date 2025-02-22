@@ -69,13 +69,13 @@ const products = [
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                 <p className="mt-1 text-sm font-medium text-gray-900">₹{product.price}</p>
-                <div className="mt-2 mb-3 w-full ring-2 hover:shadow-2xl  ring-purple-800 text-center rounded-md "><button className="px-2 py-2 ">Add</button></div>
+                <div className="mt-2 mb-3 w-full ring-1 hover:shadow-2xl  ring-sky-800 text-center rounded-md "><button className="px-2 py-2 ">Add</button></div>
               </div>
             ))}
           </div>
   
           <div className="mt-8 text-sm md:hidden">
-            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="#" className="font-medium text-sky-800 hover:text-indigo-500">
               Shop the collection
               <span aria-hidden="true"> &rarr;</span>
             </a>

@@ -180,6 +180,7 @@ export default function ShoppingCart() {
                 </div>
               </div>
             </div>
+            
           </div>
 
       )}

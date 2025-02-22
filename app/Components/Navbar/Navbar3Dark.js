@@ -57,7 +57,7 @@ const cartItems = useSelector((state) => state.cart);
                       >
                         Home
                       </Link>
-                      <Link
+                      {/* <Link
                         href="/shop"
                         onClick={() => setIsShopHovered(!isShopHovered)}
                         className={`flex rounded-md px-3 py-2 text-sm font-medium  text-gray-300 hover:bg-gray-700 hover:text-white ${
@@ -70,7 +70,7 @@ const cartItems = useSelector((state) => state.cart);
                           <FaAngleDown className="w-6 h-6" />
                         </span>
                       </Link>
-                      {isShopHovered && <ShopHover />}
+                      {isShopHovered && <ShopHover />} */}
                       <Link
                         href="/about-us"
                         className={`rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ${

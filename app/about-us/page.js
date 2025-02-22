@@ -18,7 +18,7 @@ const Card = ({ title, content,listItems,bgcolor }) => (
 
 const AboutUs = () => {
   return (
-    <section className=''>
+    <section className='lg:px-8'>
           <div className="container mx-auto  p-8  rounded-md">
       <h1 className="text-4xl font-bold mb-8 text-center text-blue-800">About Us</h1>
 
@@ -26,12 +26,12 @@ const AboutUs = () => {
         <Card
           title="Our Story"
           content="Founded in 2024, Teghiya Store was born out of a love for our product and a commitment to what makes our brand unique. What started as a small idea has now grown into a  thriving community of our customer base who share our passion."
-          bgcolor='bg-yellow-400'
+          // bgcolor='bg-yellow-400'
         />
 
         <Card
           title="Our Mission"
-          bgcolor='bg-green-400'
+          // bgcolor='bg-green-400'
           content="At Teghiya Store, our mission is to our product better. We believe in  core beliefs, and every product we offer is a reflection of that commitment. We strive to excel in every aspect of our business."
         />
       </div>
